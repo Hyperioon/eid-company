@@ -1,0 +1,19 @@
+<div class="queryBox text" id="queryTime">
+    <label class="labelText w70 pull-left text-r">查询时间：</label>
+    <input size="16" id="startTime" class="startTime input-text pull-left w120" type="text" placeholder="开始时间" readonly>
+    <div class="pull-left" style="height: 32px;line-height: 32px;padding: 0px 10px;">--</div>
+    <input size="16" id="endTime" class="endTime input-text pull-left w120" type="text" placeholder="结束时间" readonly>
+</div>
+<div class="queryBox mt-10 text" id="statusSelect">
+    <label class="labelText w70 pull-left text-r">状态：</label>
+    <input class="btn radius primary" type="button" value="全部" data-status="">
+    <input class="btn btn-link radius" type="button" value="已查看" data-status="0">
+    <input class="btn btn-link radius" type="button" value="已通过" data-status="1">
+    <input class="btn btn-link radius" type="button" value="未通过" data-status="2">
+    <input class="btn btn-link radius" type="button" value="黑名单" data-status="3">
+    <div class="searchGroup">
+        <input type="text" class="input-text pull-right w200" id="searchText" placeholder="请输入客户姓名">
+        <i class="Hui-iconfont searchIcon" id="searchIcon">&#xe665;</i>
+    </div>
+</div>
+<div class="hr"></div>

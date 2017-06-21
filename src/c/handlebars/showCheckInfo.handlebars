@@ -1,0 +1,92 @@
+<div id="modal-checkInfo" class="modal fade myModal" style="margin-left: -475px">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modalHeader">
+                <span class="modal-title ml20">人证核实信息</span>
+                <a class="close mr5 pull-right" id="closeBtn" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+            </div>
+            <div class="modalBody" data-result="{{result}}">
+                {{#ifCond mobileStatus "==" "1"}}
+                    <div class="orangeTip" id="orangeTip">温馨提示：重新查询需重新收费~</div>
+                {{/ifCond}}
+                <!--result==0?"人脸比对成功":"人脸比对失败";-->
+                {{#ifCond result "!=" 0}}
+                    <img id="ani" class="idtySuccess" src="http://static.hpbanking.com/xg/uploads/files/46c097fd69994dbcc07463bfe2985d4b-130-125.png" alt="">
+                {{/ifCond}}
+                {{#ifCond result "==" 0}}
+                    <img id="ani" class="idtySuccess" src="http://static.hpbanking.com/xg/uploads/files/9f4f3bc9661218d2f7fad385a3997d36-130-116.png" alt="">
+                {{/ifCond}}
+                <div class="pull-left identitiesBox">
+                    <div class="identity identityFront pull-left">
+                        <div class="pull-left w170 clearfix">
+                            <div class="lineBox">
+                                <span class="lightblue">姓名</span><span class="addText">{{borrowerName}}</span>
+                            </div>
+                            <div class="lineBox">
+                                <span class="lightblue">性别</span><span class="addText">{{infoSex sex}}</span><span class="ml-15 lightblue">民族</span><span class="addText">{{nation}}</span>
+                            </div>
+                            <div class="lineBox">
+                                <span class="lightblue">出生</span><span class="addText">{{birthdate}}</span>
+                            </div>
+                            <div class="lineBox" style="height:14px;line-height:14px !important;">
+                                <span class="lightblue">住址</span><span class="addText">{{address}}</span>
+                            </div>
+                        </div>
+                        <div class="pull-right w80 mr-10">
+                            <img src="{{imgUrl}}" class="frontPic">
+                        </div>
+                        <div class="lineBox clearfix" style="position: absolute;bottom: 20px;">
+                            <span class="lightblue">公民身份证号码</span><span class="addText">{{cardNum}}</span>
+                        </div>
+                    </div>
+                    <div class="identity identityBack pull-left ml29">
+                        <div class="lineBox pdl20 mt100">
+                            <span class="">签发机关</span><span class="addText">{{issuer}}</span>
+                        </div>
+                        <div class="lineBox pdl20">
+                            <span class="">有效期限</span><span class="addText">{{transform validDate}}</span>
+                        </div>
+                    </div>
+                    <div class="currentPic pull-left ml29">
+                        <img src="{{faceUrl}}" width="186">
+                        <img id="frame" src="http://static.hpbanking.com/xg/uploads/files/28fd24d40a6d325f3cb7085b7f37ef41-140-140.png">
+                        <div id="scanline"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modalFooter">
+                <div class="pull-left">
+                    <label class="f-18" for="mobile">手机号码</label>
+                    <input class="input-text w222 phone ml20" id="mobile" maxlength="13" placeholder="请输入银行卡绑定号码或常用号码">
+                </div>
+                <div class="btnGroup pull-right">
+                    <a class="btn btn-primary h42" id="infoSureToModalBtn" data-result="{{result}}" data-encryptkey="{{encryptKey}}" data-borrowername="{{borrowerName}}" data-sex="{{sex}}" data-nation="{{nation}}" data-birthdate="{{birthdate}}"
+                       data-address="{{address}}" data-imgUrl="{{imgUrl}}" data-issuer="{{issuer}}" data-validDate="{{validDate}}" data-faceUrl="{{faceUrl}}" data-cardnum="{{cardNum}}"
+                       data-itemid="{{itemId}}" data-customerid="{{customerId}}" data-companyid="{{companyId}}" data-mobilestatus="{{mobileStatus}}">校验手机号码</a>
+                    <!--<a class="btn btn-primary h42" id="validatePhoneBtn" data-result="{{result}}" data-encryptkey="{{encryptKey}}" data-borrowername="{{borrowerName}}" data-sex="{{sex}}" data-nation="{{nation}}" data-birthdate="{{birthdate}}"
+                       data-address="{{address}}" data-imgUrl="{{imgUrl}}" data-issuer="{{issuer}}" data-validDate="{{validDate}}" data-faceUrl="{{faceUrl}}" data-cardnum="{{cardNum}}"
+                       data-itemid="{{itemId}}" data-customerid="{{customerId}}" data-companyid="{{companyId}}" data-mobilestatus="{{mobileStatus}}">校验手机号码</a>-->
+                </div>
+            </div>
+            <div class="modalFooter2 displayNone">
+                <div class="pull-left">
+                    <label class="f-18" for="">手机号码：<span id="phoneNumberS1"></span></label>
+                    <span class="tip">手机号码与身份匹配成功</span>
+                </div>
+                <div class="btnGroup pull-right">
+                   <a class="btn btn-primary h42 infoSureBtn2" id="infoSureBtn2" href="/cycle/credit/detail/detailPage.htm?encryptKey={{encryptKey}}" target="_blank">查看详情</a>
+                </div>
+            </div>
+            <div class="modalFooter3 displayNone">
+                <div class="pull-left">
+                    <label class="f-18" for="">手机号码：<span id="phoneNumberF1"></span></label>
+                    <span class="tip">手机号码与身份匹配失败</span>
+                </div>
+                <div class="btnGroup pull-right">
+                    <a class="btn btn-danger h42" id="validateAgian">重新查询</a>
+                    <a class="btn btn-primary h42 infoSureBtn2" id="infoSureBtn2" href="/cycle/credit/detail/detailPage.htm?encryptKey={{encryptKey}}" target="_blank">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

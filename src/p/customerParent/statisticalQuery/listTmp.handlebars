@@ -1,0 +1,46 @@
+<table class="table table-border table-bordered table-hover">
+    <thead class="text-c">
+        <tr>
+            <th>门店名称</th>
+            <th>1月</th>
+            <th>2月</th>
+            <th>3月</th>
+            <th>4月</th>
+            <th>5月</th>
+            <th>6月</th>
+            <th>7月</th>
+            <th>8月</th>
+            <th>9月</th>
+            <th>10月</th>
+            <th>11月</th>
+            <th>12月</th>
+            <th>总数</th>
+        </tr>
+    </thead>
+    <tbody class="text-c">
+    {{#if this}}
+        {{#each this}}
+            <tr class="text-c">
+                <th>{{companyName}}</th>
+                <th>{{jan}}</th>
+                <th>{{feb}}</th>
+                <th>{{mar}}</th>
+                <th>{{apr}}</th>
+                <th>{{may}}</th>
+                <th>{{june}}</th>
+                <th>{{july}}</th>
+                <th>{{aug}}</th>
+                <th>{{sept}}</th>
+                <th>{{oct}}</th>
+                <th>{{nov}}</th>
+                <th>{{dec}}</th>
+                <th>{{count}}</th>
+            </tr>
+        {{/each}}
+    {{else}}
+        <tr>
+            <td class="text-c" colspan="14">暂无数据</td>
+        </tr>
+    {{/if}}
+    </tbody>
+</table>

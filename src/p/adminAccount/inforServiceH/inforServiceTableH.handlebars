@@ -1,0 +1,45 @@
+<thead class="text-c">
+    <tr>
+        <th>姓名</th>
+        <th>身份证号码</th>
+        <th>查询时间</th>
+        <th>客户名称</th>
+        <th>门店名称</th>
+        <th>业务状况</th>
+        <th>手机校验</th>
+        <th>详情</th>
+    </tr>
+</thead>
+<tbody class="text-c">
+{{#if this}}
+{{#each this}}
+  <tr>
+    <td>{{borrowerName}}</td>
+    <td>{{cardNum}}</td>
+    <td>{{formatDateFull created}}</td>
+    <td>{{companyName}}</td>
+    <td>{{childName}}</td>
+    <td>{{statusText status}}</td>
+    <td>
+        {{#ifCond mobileStatus "==" '0'}}
+            未校验
+        {{/ifCond}}
+        {{#ifCond mobileStatus "==" '1'}}
+            校验失败
+        </a>
+        {{/ifCond}}
+        {{#ifCond mobileStatus "==" '2'}}
+            校验成功
+        {{/ifCond}}
+    </td>
+    <td>
+        <a class="detailBtn underLine" href="/cycle/credit/detail/detailPage.htm?encryptKey={{encryptKey}}" target="_blank">详情</a>
+    </td>
+  </tr>
+{{/each}}
+{{else}}
+    <tr>
+        <td class="text-c" colspan="7">暂无数据</td>
+    </tr>
+{{/if}} 
+</tbody>

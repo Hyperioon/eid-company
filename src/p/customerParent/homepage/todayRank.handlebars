@@ -1,0 +1,23 @@
+<table class="table table-border table-bordered table-hover">
+    <h4 class="rank-title">今日排名（前十）</h4>
+    <thead class="text-c">
+        <tr>
+            <th>店铺</th>
+            <th>数量</th>
+        </tr>
+    </thead>
+    <tbody class="text-c">
+    {{#if this}}
+        {{#each this}}
+            <tr class="text-c">
+               <td>{{companyName}}</td>
+               <td>{{count}}</td>
+            </tr>
+        {{/each}}
+    {{else}}
+        <tr>
+            <td class="text-c" colspan="8">暂无数据</td>
+        </tr>
+    {{/if}}
+    </tbody>
+</table>
